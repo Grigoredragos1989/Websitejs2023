@@ -40,7 +40,7 @@ function csstomin() {
 function jstomin() {
     return gulp.src(['dev/js/*'])
         .pipe(concat('main.js'))
-        //.pipe(gulp.dest('dev/js'))
+
         .pipe(minify())
         .pipe(gulp.dest('assets/js'));
 }
