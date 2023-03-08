@@ -7,3 +7,4 @@ var carousel = new bootstrap.Carousel(myCarousel, {
     touch: true,
     ride: false
 });
+

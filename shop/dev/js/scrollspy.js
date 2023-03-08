@@ -7,7 +7,7 @@
 
 $(document).ready(function () {
     $("body").scrollspy({
-        target: "#myNavbar"
+        target: "#navbar_top"
     })
 
 });
