@@ -8,6 +8,11 @@ const cleanCSS = require('gulp-clean-css');
 var minify = require('gulp-minify');
 var concat = require('gulp-concat');
 
+// optional pentru imagini : gulp images
+const imagemin = require('gulp-imagemin');
+const imageminMozjpeg = require('imagemin-mozjpeg');
+const imageResize = require('gulp-image-resize');
+const webp = require('gulp-webp');
 
 
 // ca sa transformam fisiere sass/scss in fisiere css: gulp sass
@@ -102,7 +107,6 @@ gulp.task('images', () => {
     });
     return stream;
 });
-
 
 
 gulp.task('imagestowebp', () => {
