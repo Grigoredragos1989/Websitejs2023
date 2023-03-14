@@ -29,14 +29,14 @@
                     myFunction(this);
                 }
             };
-            xmlhttp.open("GET", "http://127.0.0.1:5500/curs3/solutii/data/ap2.xml", true);
+            xmlhttp.open("GET", "http://127.0.0.1:5500/curs3/data/ap2.xml", true);
            
             xmlhttp.send();
         }
         function myFunction(xml) {
             var i;
             var xmlDoc = xml.responseXML;
-            var table = "<tr><th>Artist</th><th>Title</th><th>Year</th> <th>Price</th></tr>";
+            var table = "<tr><th>Artist</th><th>Title</th><th>Year</th><th>Price</th></tr>";
             var x = xmlDoc.getElementsByTagName("CD");
             for (i = 0; i < x.length; i++) {
                 table += "<tr><td>" +
