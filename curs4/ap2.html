@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <a href="https://github.com/jesseokeya/Forbes400"
+      >ttps://github.com/jesseokeya/Forbes400</a
+    >
+    <br />
+    <a href="https://www.forbes.com/forbes-400/"
+      >https://www.forbes.com/forbes-400/</a
+    ><br />
+    <button id="getDataBtn" onclick="start()">Get Data JS</button>
+    <button id="getDataBtn2">Get Data Jquery</button>
+    <div id="richList"></div>
+    <div id="loader" class="lds-dual-ring hidden overlay"></div>
+  </body>
+  <script>
+    document.getElementById("loader").classList.remove("hidden");
+    var xmlhttp = new XMLHttpRequest();
+    var url = "https://forbes400.onrender.com/api/forbes400?limit=100";
+    xmlhttp.onreadystatechange = function () {
+      if (this.readyState == 4 && this.status == 200) {
+        var myArr = JSON.parse(this.responseText);
+        myFunction(myArr);
+      }
+    };
+
+    xmlhttp.open("GET", url, true);
+    xmlhttp.send();
+
+    function myFunction(data) {
+      let richList = "<ol>";
+
+    //   console.table(data);
+      data.forEach((item) => {
+        richList += `
+        <li> Nume:${item.personName} Industrie:${item.industries} Firma:${item.source} </li>
+        `;
+      });
+      richList += "</ol>";
+      document.getElementById("loader").classList.add("hidden");
+      document.getElementById("richList").innerHTML = richList;
+    }
+  </script>
+</html>

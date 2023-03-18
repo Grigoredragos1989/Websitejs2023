@@ -7,7 +7,7 @@
     <title>Document</title>
   </head>
   <body>
-    <h1>Bitcoin</h1>
+    <h1>1 Bitcoin</h1>
     <div id="data"></div>
     <div id="bit"></div>
     <script>
@@ -26,7 +26,7 @@
       xmlhttp.send();
       function myFunction(data) {
         var out = "";
-        console.log(data.bpi);
+        // console.log(data.bpi);
         document.getElementById("data").innerHTML = data.time.updated;
         out += `
         <ul>
