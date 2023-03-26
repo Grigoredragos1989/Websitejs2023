@@ -1,68 +1,67 @@
 var myCarousel = document.querySelector('#myCarousel')
 var carousel = new bootstrap.Carousel(myCarousel, {
-    interval: 2000,
-    wrap: true,
-    pause: false, //'hover'
-    keyboard: true,
-    touch: true,
-    ride: false
+  interval: 2000,
+  wrap: true,
+  pause: false, //'hover'
+  keyboard:true,
+  touch: true,
+  ride: false
 });
-
 
 // go to top
 
 const scrollBtn = document.querySelector(".gototop");
 const btnVisibility = () => {
-    if (window.scrollY > 400) {
-        scrollBtn.style.visibility = "visible";
-    } else {
-        scrollBtn.style.visibility = "hidden";
-    }
+  if (window.scrollY > 400) {
+    scrollBtn.style.visibility = "visible";
+  } else {
+    scrollBtn.style.visibility = "hidden";
+  }
 };
 document.addEventListener("scroll", () => {
-    btnVisibility();
+  btnVisibility();
 });
 scrollBtn.addEventListener("click", () => {
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth",
-    });
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
 });
+
 
 function includeHTML() {
     var z, i, elmnt, file, xhttp;
     /*loop through a collection of all HTML elements:*/
     z = document.getElementsByTagName("*");
     for (i = 0; i < z.length; i++) {
-        elmnt = z[i];
-        /*search for elements with a certain attribute:*/
-        file = elmnt.getAttribute("w3-include-html");
-        if (file) {
-            /*make an HTTP request using the attribute value as the file name:*/
-            xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function () {
-                if (this.readyState == 4) {
-                    if (this.status == 200) { elmnt.innerHTML = this.responseText; }
-                    if (this.status == 404) { elmnt.innerHTML = "Page not found."; }
-                    /*remove the attribute, and call this function once more:*/
-                    elmnt.removeAttribute("w3-include-html");
-                    includeHTML();
-                }
-            }
-            xhttp.open("GET", file, true);
-            xhttp.send();
-            /*exit the function:*/
-            return;
-        }
+      elmnt = z[i];
+      /*search for elements with a certain attribute:*/
+      file = elmnt.getAttribute("w3-include-html");
+      if (file) {
+        /*make an HTTP request using the attribute value as the file name:*/
+        xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+          if (this.readyState == 4) {
+            if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+            if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+            /*remove the attribute, and call this function once more:*/
+            elmnt.removeAttribute("w3-include-html");
+            includeHTML();
+          }
+        }      
+        xhttp.open("GET", file, true);
+        xhttp.send();
+        /*exit the function:*/
+        return;
+      }
     }
-};
+  };
 
-includeHTML();
-console.log('include');
-
+  includeHTML();
+  console.log('include');
 
 var id;
-$("#modalForm").on('show.bs.modal', function (event) {
+$("#modalForm").on('show.bs.modal', function(event) {
     var button = $(event.relatedTarget); //Button that triggered the modal
     const produs = button.data('name') //need to find the button and get product
     const pret = button.data('price') //need to find the button and get price
@@ -72,19 +71,18 @@ $("#modalForm").on('show.bs.modal', function (event) {
     $(".modal-body #description").html(description);
     id = button.attr('id');
     // var datainfo = document.getElementById(id);
-    alert(JSON.stringify(button[0]));
+     alert(JSON.stringify(button[0]));
     // alert(JSON.stringify(datainfo));
-
-
-})
-$("#modalForm").on('hidden.bs.modal', function (event) {
-
+    
+   
+  })
+  $("#modalForm").on('hidden.bs.modal', function(event) {
+   
     alert('Modalul s-a inchis');
     document.getElementById(id).classList.remove('btn-primary');
     document.getElementById(id).classList.add('btn-success');
-})
-
-
+  })
+  
 document.addEventListener("DOMContentLoaded", function(){
     window.addEventListener('scroll', function() {
         if (window.scrollY > 400) {
@@ -98,8 +96,8 @@ document.addEventListener("DOMContentLoaded", function(){
           document.body.style.paddingTop = '0';
         } 
     });
-  });
-   
+  }); 
+  
 
 // document.addEventListener("DOMContentLoaded", function(){
 //     var myScrollSpy = new bootstrap.ScrollSpy(document.body, {
@@ -113,6 +111,7 @@ $(document).ready(function () {
     })
 
 });
+
 
 (function () {
     'use strict'
