@@ -206,3 +206,4 @@ $('.show-cart').on("change", ".item-count", function (event) {
 });
 
 displayCart();
+console.log("sunt in cart");
