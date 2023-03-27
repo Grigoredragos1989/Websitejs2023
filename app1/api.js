@@ -7,8 +7,7 @@ console.log('apelez api')
 
 // Pas 1
 async function getProducts() {
-    // let response = await fetch("https://makeup-api.herokuapp.com/api/v1/products.json?brand=maybelline");
-    let response = await fetch("http://127.0.0.1:5500/app1/makeup.json");
+    let response = await fetch("https://makeup-api.herokuapp.com/api/v1/products.json?brand=maybelline");
     let products = await response.json();
     return products;
 }
@@ -18,8 +17,8 @@ function onLoad2222() {
     document.getElementById('loader').classList.remove('hidden');
     getProducts().then(function (products) {
         console.log('incepe ap1')
-        listProducts(products).then(function () {
-
+        listProducts(products).then(function (){
+           
             var $container = $('.portfolioContainer');
             var $filter = $('#filter');
             $container.isotope({
@@ -34,7 +33,7 @@ function onLoad2222() {
                     overflow: 'visible'
                 },
             });
-            $filter.find('a').click(function () {
+            $filter.find('a').click(function() {
                 var selector = $(this).attr('data-filter');
                 $filter.find('a').removeClass('active');
                 $(this).addClass('active');
@@ -61,10 +60,10 @@ function onLoad2222() {
 
 // Pas 3
 async function listProducts(products) {
-    let html = '';
+    let html='';
     products.forEach(function (product) {
         //console.log(product);
-        let divProduct = `
+        let divProduct=`
         <div class="col-md-4 col-sm-6 mb-4 ${product.product_type}">
         <div class="card mb-30"><a class="card-img-tiles" href="#" data-abc="true">
                 <div class="inner">
@@ -77,15 +76,12 @@ async function listProducts(products) {
             <div class="card-body text-center">
                 <h4 class="card-title">${product.name}  ${product.category}</h4>
                 <p class="text-muted">Starting from ${product.price}</p>
-                <!-- DEmo com-->
-                <a target='_blank' class="btn btn-outline-primary btn-sm" href="${product.product_link}" data-abc="true">View Products</a>
-                <a href="#" data-id="${product.id}" data-name="${product.name}" data-price="${product.price}" class="add-to-cart btn btn-primary">Add to
-                cart</a>
-             </div>
+                <a class="btn btn-outline-primary btn-sm" href="#" data-abc="true">View Products</a>
+            </div>
         </div>
     </div>
        `;
-        html += divProduct;
+    html +=divProduct;
     });
     let container = document.getElementById('portfolioContainer');
     container.innerHTML = html;
