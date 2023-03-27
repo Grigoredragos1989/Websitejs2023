@@ -167,3 +167,6 @@
     transform: translateY(-20px); }
   100% {
     transform: translateY(0px); } }
+
+table td .delete-item {
+  background-color: red; }
